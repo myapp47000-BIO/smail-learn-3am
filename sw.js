@@ -1,11 +1,12 @@
 // متفوّق 3 متوسط - Service Worker (عمل بدون إنترنت)
 
-const CACHE_NAME = 'm3am-pwa-v2';
+const CACHE_NAME = 'm3am-pwa-v3';
 const ASSETS = [
     './',
     './index.html',
     './style.css',
     './app.js',
+    './login.js',
     './data.js',
     './data-math.js',
     './data-arabic.js',
