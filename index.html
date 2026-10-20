@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#4f46e5" />
-    <meta name="description" content="متفوّق 3 متوسط - تطبيق تعليمي تفاعلي لدعم دروس السنة الثالثة متوسط حسب البرنامج الرسمي الجزائري: ملخصات، قواعد، فيديوهات، مراجعات، اختبارات Quiz ونماذج مع الحلول." />
+    <meta name="description" content="learn with Smail - تطبيق تعليمي تفاعلي لدعم دروس السنة الثالثة متوسط حسب البرنامج الرسمي الجزائري: ملخصات، قواعد، فيديوهات، مراجعات، اختبارات Quiz ونماذج مع الحلول." />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>متفوّق 3 متوسط — دروس ونماذج السنة الثالثة متوسط</title>
+    <title>learn with Smail — دروس ونماذج السنة الثالثة متوسط</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="icons/icon-192.png" />
     <link rel="apple-touch-icon" href="icons/icon-192.png" />
@@ -16,12 +17,38 @@
 <body>
     <div id="overlay" data-close-drawer></div>
 
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card">
+            <div class="login-logo"><span>📘✨</span></div>
+            <h1 class="login-title">learn with Smail</h1>
+            <p class="login-tagline">تعلّم بذكاء، تقدّم بثقة — السنة الثالثة متوسط</p>
+            <form class="login-form" id="loginForm" autocomplete="off">
+                <div class="login-field">
+                    <label for="loginName">👤 الاسم</label>
+                    <input type="text" id="loginName" placeholder="اكتب اسمك" maxlength="30" />
+                </div>
+                <div class="login-field">
+                    <label for="loginAge">🎂 العمر</label>
+                    <input type="number" id="loginAge" placeholder="اكتب عمرك" min="8" max="99" />
+                </div>
+                <div class="login-error" id="loginError"></div>
+                <button type="submit" class="login-btn">🚀 الدخول مباشرة</button>
+            </form>
+            <div class="login-quote">
+                <div class="q-mark">❝</div>
+                <p>النجاح ليس نهاية، والفشل ليس قاتلاً، إنما الشجاعة للاستمرار هي ما يهمّ.</p>
+                <cite>— وينستون تشرشل</cite>
+            </div>
+        </div>
+    </div>
+
     <header class="topbar">
         <button class="icon-btn" data-drawer aria-label="القائمة">☰</button>
         <div class="brand" data-nav="#/">
             <span class="brand-logo">🎓</span>
-            <span class="brand-name">متفوّق 3 متوسط</span>
+            <span class="brand-name">learn with Smail</span>
         </div>
+        <button id="userChip" class="login-user hidden" title="تسجيل الخروج">👤 <span id="userChipName"></span></button>
         <button id="installBtn" class="install-btn hidden">⬇ تثبيت التطبيق</button>
     </header>
 
@@ -29,7 +56,7 @@
         <div class="drawer-head">
             <span class="brand-logo big">🎓</span>
             <div>
-                <b>متفوّق 3 متوسط</b>
+                <b>learn with Smail</b>
                 <small>البرنامج الرسمي الجزائري</small>
             </div>
         </div>
@@ -56,6 +83,7 @@
     <script src="data-tri1.js"></script>
     <script src="data-tri2.js"></script>
     <script src="app.js"></script>
+    <script src="login.js"></script>
     <script>
         // ملء قائمة المواد في الدرج
         document.addEventListener('DOMContentLoaded', function () {
